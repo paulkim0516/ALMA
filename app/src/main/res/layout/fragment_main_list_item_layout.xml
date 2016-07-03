@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:minHeight="25dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:text="10/28/15"
+            android:id="@+id/dueDate"
+            android:textSize="15sp"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/taskTitle"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="left"
+            android:paddingLeft="4dp"
+            android:text="Task Title" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Category"
+            android:id="@+id/taskCategoryTitle"
+            android:gravity="center"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="2570"
+            android:layout_gravity="left">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Detail"
+                android:id="@+id/detailHeader"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="3dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sample Assignment Detail"
+                android:id="@+id/taskDetail"
+                android:layout_marginLeft="5dp"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="left"
+            android:paddingLeft="5dp"
+            android:layout_weight="2570"
+            android:id="@+id/attachmentView">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attachments"
+                android:id="@+id/fileHeader"
+                android:textStyle="bold"
+                android:layout_marginBottom="3dp"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/link_insertion_point"></LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

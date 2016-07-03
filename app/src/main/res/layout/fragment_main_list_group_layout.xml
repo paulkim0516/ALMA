@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="64dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="center" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="P6"
+            android:id="@+id/classPeriod"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:35 AM"
+            android:id="@+id/classTime"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Technology: Web Design (P6)"
+        android:id="@+id/classTitle"
+        android:layout_gravity="center"
+        android:singleLine="true"
+        android:layout_margin="5dp"
+        android:elegantTextHeight="false"
+        android:layout_weight="3" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="right"
+        android:layout_marginLeft="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ROOM 4"
+            android:id="@+id/classRoom"
+            android:layout_gravity="center"
+            android:singleLine="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stewart, Billy"
+            android:id="@+id/classTeacher"
+            android:layout_gravity="center"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="A+"
+        android:id="@+id/classScore"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"
+        android:gravity="center" />
+
+</LinearLayout>
