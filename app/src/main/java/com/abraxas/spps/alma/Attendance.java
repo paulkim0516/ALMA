@@ -9,7 +9,7 @@ import java.util.IllegalFormatException;
 
 public class Attendance implements Serializable {
 
-    public static final Integer PRESENT = 0, PARTIAL = 1, ABSENT=2, NOT_TAKEN = 3, PARTIAL_EXCUSED=4, ABSENT_EXCUSED=5;
+    public static final Integer PRESENT = 0, PARTIAL = 1, ABSENT=2, NOT_TAKEN = 3, PARTIAL_EXCUSED=4, ABSENT_EXCUSED=5, NO_SCHOOL=6;
 
     private HashMap<Calendar,HashMap<String,Integer>> attendance_list = new HashMap<>();
 
@@ -88,6 +88,28 @@ public class Attendance implements Serializable {
         return new Integer[]{present,late,absent,na};
     }
 
-
+    public int get(Calendar calendar){
+        HashMap<String, Integer> map = attendance_list.get(calendar);
+        String[] key = (String[]) map.keySet().toArray();
+        for(int i=0; i<key.length; i++) {
+            switch (map.get(key[i])) {
+                case 0:
+                case 1:
+                case 4:
+                    return 0;
+                case 2:
+                case 5:
+                    return 1;
+                case 3:
+                    i++;
+                    continue;
+                case 6:
+                    return 6;
+                default:
+                    return -1;
+            }
+        }
+        return -1;
+    }
 
 }

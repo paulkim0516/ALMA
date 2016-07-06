@@ -46,10 +46,12 @@ import javax.net.ssl.HttpsURLConnection;
 public class
 LoginActivity extends AppCompatActivity {
 
-    public static String SCHOOL_CLASS= "com.spps.alma.schoolClass";
-    public static String SEMESTER = "com.spps.alma.semester";
-    public static String COOKIE = "com.spps.alma.cookie";
-    public static String CALENDAR = "com.spps.alma.calendar";
+    public static final String
+            ATTENDANCE = "com.spps.alma.attendance",
+            SCHOOL_CLASS= "com.spps.alma.schoolClass",
+            SEMESTER = "com.spps.alma.semester",
+            COOKIE = "com.spps.alma.cookie",
+            CALENDAR = "com.spps.alma.calendar";
     public ArrayList<Course> schoolClass = new ArrayList<>();
     private String cookie = "";
     private UserLoginTask mAuthTask = null;
@@ -635,10 +637,10 @@ LoginActivity extends AppCompatActivity {
                 c.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
                 for(int j=0;j<5;j++){
                     for(int k=0;k<containers[j].split("<div class=\"class-period").length-1;k++){
-                        HashMap<String, Integer> map = new HashMap<>();
+                      HashMap<String, Integer> map = new HashMap<>();
                         String classTitle = containers[j].split("<div class=\"class-period")[k+1].split("<h5>")[2].split("</h5>")[0];
                         SchoolClass sc = null;
-                        int attendanceCode = -1;
+                        int attendanceCode;
                         for(int l=0;l<classNum;l++){
                             if(schoolClass.get(l).getFirstSemester().getClassTitle().contains(classTitle)) {
                                 if (semester == 0) {
@@ -669,6 +671,7 @@ LoginActivity extends AppCompatActivity {
                                     attendanceCode=Attendance.NOT_TAKEN;
                                     break;
                                 default:
+                                    attendanceCode=Attendance.NO_SCHOOL;
                                     break;
                             }
                             assert sc != null;
@@ -731,6 +734,7 @@ LoginActivity extends AppCompatActivity {
                 intent.putExtra(SEMESTER,semester);
                 intent.putExtra(COOKIE,cookie);
                 intent.putExtra(CALENDAR,schoolCalendar);
+                intent.putExtra(ATTENDANCE, attendance);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 System.out.println(System.currentTimeMillis()-startTime);
                 startActivity(intent);

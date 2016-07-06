@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity
             fragment = getSupportFragmentManager().findFragmentByTag("tag");
         } else {
 
-            Bundle args = new Bundle();
+            Bundle args = getIntent().getExtras();
             switch (section) {
                 case 1:
                     fragment = new GradeFragment();
@@ -52,11 +52,7 @@ public class MainActivity extends AppCompatActivity
                 case 2:
                     fragment = new CaldroidFragment();
                     mTitle = "Calendar";
-                    Calendar cal = Calendar.getInstance();
-                    args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
-                    args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
-                    args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
-                    args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
+                    caldroidFragmentSetup(args, (CaldroidFragment) fragment);
                     break;
                 case 0:
                 default:
@@ -160,11 +156,8 @@ public class MainActivity extends AppCompatActivity
             case R.id.nav_attendance:
                 fragment = new CaldroidFragment();
                 mTitle = "Calendar";
-                Calendar cal = Calendar.getInstance();
-                args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
-                args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
-                args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
-                args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
+                caldroidFragmentSetup(args, (CaldroidFragment) fragment);
+
                 currentPos = 2;
                 break;
             case R.id.nav_main:
@@ -186,5 +179,15 @@ public class MainActivity extends AppCompatActivity
 
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void caldroidFragmentSetup(Bundle args, CaldroidFragment fragment) {
+        Calendar cal = Calendar.getInstance();
+        args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
+        args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
+        args.putBoolean(CaldroidFragment.ENABLE_SWIPE, true);
+        args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
+        Attendance attendance = (Attendance) args.get(LoginActivity.ATTENDANCE);
+        cal.set(Calendar.DATE,1);
     }
 }
